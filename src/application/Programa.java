@@ -14,9 +14,8 @@ public class Programa {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 		List<Employee> list = new ArrayList<>();
-		//Employee employee = new Employee(); 
-		//OutsourcedEmployee oe = new OutsourcedEmployee(); 
 		
 		System.out.print("Enter the number of employees: ");
 		int n = sc.nextInt(); 
@@ -25,28 +24,19 @@ public class Programa {
 			System.out.print("Outsourced (Y/N)? ");//n
 			Character out = sc.next().charAt(0);
 			out = Character.toUpperCase(out);
-			if(out == 'N') {
-				sc.nextLine(); 
-				System.out.print("Name: ");
-				String name = sc.nextLine();//Alex
-				System.out.print("Hours: ");
-				Integer hours = sc.nextInt(); //Hours: 50
-				System.out.print("Value per hour: ");//20.00
-				Double valuePerHour = sc.nextDouble();
-				Employee employee = new Employee(name, hours, valuePerHour); 
-				list.add(employee);
+			sc.nextLine(); 
+			System.out.print("Name: ");
+			String name = sc.nextLine();//Alex
+			System.out.print("Hours: ");
+			Integer hours = sc.nextInt(); //Hours: 50
+			System.out.print("Value per hour: ");//20.00
+			Double valuePerHour = sc.nextDouble();
+			if(out == 'N') { 
+				list.add(new Employee(name, hours, valuePerHour));
 			}else {
-				sc.nextLine(); 
-				System.out.print("Name: ");
-				String name = sc.nextLine(); 
-				System.out.print("Hours: ");
-				Integer hours = sc.nextInt(); 
-				System.out.print("Value per hour: ");
-				Double valuePerHour = sc.nextDouble(); 
 				System.out.print("Additional charge: ");
 				Double aditional = sc.nextDouble(); 
-				OutsourcedEmployee os = new OutsourcedEmployee(name,hours,valuePerHour, aditional);
-				list.add(os);
+				list.add(new OutsourcedEmployee(name,hours,valuePerHour, aditional));
 			}
 		}
 		System.out.println();
@@ -54,8 +44,6 @@ public class Programa {
 		for (Employee employees : list) {
 			System.out.println(employees);
 		}
-		
-		
 		sc.close();
 	}
 }

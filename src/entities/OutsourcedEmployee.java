@@ -10,16 +10,14 @@ public class OutsourcedEmployee extends Employee{
 	}
 	@Override
 	public double payment() {
-		return super.payment();
+		return super.payment() + (aditional * 1.1);
 	}
-	private double additionalCharge() {
-		return payment() + (this.aditional * (110 / 100.0));
-	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(); 
 		sb.append(this.getName() + " - $");
-		sb.append(String.format("%.2f", additionalCharge()));
+		sb.append(String.format("%.2f", this.payment()));
 		return sb.toString();
 	}
 }
